@@ -1,0 +1,4 @@
+La scène meshlibrary sert à mettre pleins de composants qui pourront ensuite être exporté
+en une meshlibrary qui permettra de peindre / mettre facilement les murs / sols sur un grillage
+
+Pour le placement des items, cela se fera à la main

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ddiogxvb2c26j"]
+
+[ext_resource type="PackedScene" uid="uid://dc8l7vx5wkcal" path="res://Assets/Tiles/tiletest.fbx" id="1_f0eb1"]
+
+[node name="MeshLibraryMap" type="Node3D" unique_id=248950264]
+
+[node name="tiletest" parent="." unique_id=1017401689 instance=ExtResource("1_f0eb1")]
