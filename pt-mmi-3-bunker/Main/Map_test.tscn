@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://cc7u1vn65xprw"]
 
-[ext_resource type="MeshLibrary" uid="uid://c5uwds4wsg01m" path="res://Data/Meshlibrary/BibliothèqueMesh.meshlib" id="1_sdkpk"]
-
 [node name="MapTest" type="Node3D" unique_id=923364622]
 
 [node name="Node" type="Node" parent="." unique_id=416258065]
 
 [node name="GridMap" type="GridMap" parent="Node" unique_id=1205320796]
-mesh_library = ExtResource("1_sdkpk")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
 data = {
