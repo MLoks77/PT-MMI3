@@ -75,19 +75,23 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("Gauche", "Droite", "Avancer", "Reculer")
 	
 	# Accroupi + sprint
-	if Input.is_action_pressed("Accroupi") || isSliding :
-		vitesse_actuelle = lerp(vitesse_actuelle,vitesse_accroupi,delta*vitesse_lerp)
-		head.position.y = lerp(head.position.y,profondeur_crouch,delta*vitesse_lerp)
+	# Accroupi / Glissade
+	if Input.is_action_pressed("Accroupi") or isSliding:
+		# La caméra baisse et la hitbox change, en l'air comme au sol
+		head.position.y = lerp(head.position.y, profondeur_crouch, delta * vitesse_lerp)
 		collision_debout.disabled = true
 		collision_accroupi.disabled = false
 		
-		#logique du début de slide
-		
-		if isSprinting && input_dir != Vector2.ZERO:
-			isSliding = true
-			timer_slide = timer_slide_max
-			vecteur_slide = input_dir
-			print("Sliding")
+		# On ne réduit la vitesse que si le joueur touche le sol
+		if is_on_floor():
+			vitesse_actuelle = lerp(vitesse_actuelle, vitesse_accroupi, delta * vitesse_lerp)
+			
+			# Enclenchement de la glissade au sol uniquement
+			if isSprinting and input_dir != Vector2.ZERO:
+				isSliding = true
+				timer_slide = timer_slide_max
+				vecteur_slide = input_dir
+				print("Sliding")
 		
 		isWalking = false
 		isSprinting = false
@@ -145,9 +149,6 @@ func _physics_process(delta: float) -> void:
 		eyes.position.y = lerp(eyes.position.y, 0.0, delta * vitesse_lerp)
 		eyes.position.x = lerp(eyes.position.x, 0.0, delta * vitesse_lerp)
 		
-	if is_on_floor() && !isSliding && input_dir != Vector2.ZERO:
-		head_bobbing_vector.y = sin(head_bobbing_index)
-		head_bobbing_vector.x = sin(head_bobbing_index/2) + 0.5
 
 	if is_on_floor():
 		direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),delta*vitesse_lerp)
