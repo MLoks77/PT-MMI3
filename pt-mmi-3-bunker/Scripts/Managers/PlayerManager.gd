@@ -23,6 +23,10 @@ extends CharacterBody3D
 # automatiquement et que le joueur peut les déplacer
 @export var inventaire: Array[String] = [] #a completer avec le gd itemsmanager
 
+@export_group("Lerp déplacement")
+@export var vitesse_lerp = 10.0  # variable qui sert à ce que lors des déplacements la vitesse du joueur soit progressive
+@export var vitesse_lerp_air = 3.0
+
 # variables vitesses
 const vitesse_marche: float = 5.0
 const vitesse_sprint: float = 8.0
@@ -56,8 +60,6 @@ var head_bobbing_intensite_actuelle = 0.0
 
 # variables mouvements
 const jump_velocity = 4.5
-@export var vitesse_lerp = 10.0  # variable qui sert à ce que lors des déplacements la vitesse du joueur soit progressive
-@export var vitesse_lerp_air = 3.0
 var direction = Vector3.ZERO
 var profondeur_crouch = -0.5 # la hauteur de la caméra quand on crouch
 

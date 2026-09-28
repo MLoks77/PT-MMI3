@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mc244k2bx1th"
-path.s3tc="res://.godot/imported/texture_07.png-37b462ba9b53522570bbf6179f7dcdcd.s3tc.ctex"
+uid="uid://v0qhdsoqxlo2"
+path.bptc="res://.godot/imported/sky.hdr-27a88a788e224d5209cd4e803870ed8e.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/assets_test/FPS-controller-assets-main/assets/textures/dev/grids/Dark/texture_07.png"
-dest_files=["res://.godot/imported/texture_07.png-37b462ba9b53522570bbf6179f7dcdcd.s3tc.ctex"]
+source_file="res://Assets/Textures/sky.hdr"
+dest_files=["res://.godot/imported/sky.hdr-27a88a788e224d5209cd4e803870ed8e.bptc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v0qhdsoqxlo2"
-path.bptc="res://.godot/imported/kloofendal_48d_partly_cloudy_puresky_2k.hdr-992015df5360fdd0e1ad3ae337072a3b.bptc.ctex"
+uid="uid://mc244k2bx1th"
+path.s3tc="res://.godot/imported/texture_07.png-a2615c4df4f879784e61714106218c35.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/assets_test/FPS-controller-assets-main/assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr"
-dest_files=["res://.godot/imported/kloofendal_48d_partly_cloudy_puresky_2k.hdr-992015df5360fdd0e1ad3ae337072a3b.bptc.ctex"]
+source_file="res://Assets/Textures/texture_07.png"
+dest_files=["res://.godot/imported/texture_07.png-a2615c4df4f879784e61714106218c35.s3tc.ctex"]
 
 [params]
 
