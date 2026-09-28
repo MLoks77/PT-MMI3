@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cc7u1vn65xprw"]
 
-[ext_resource type="Texture2D" uid="uid://v0qhdsoqxlo2" path="res://Assets/assets_test/FPS-controller-assets-main/assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_hyqom"]
-[ext_resource type="Texture2D" uid="uid://mc244k2bx1th" path="res://Assets/assets_test/FPS-controller-assets-main/assets/textures/dev/grids/Dark/texture_07.png" id="2_s6tqs"]
+[ext_resource type="Texture2D" uid="uid://v0qhdsoqxlo2" path="res://Assets/Textures/sky.hdr" id="1_hyqom"]
+[ext_resource type="Texture2D" uid="uid://mc244k2bx1th" path="res://Assets/Textures/texture_07.png" id="2_s6tqs"]
 [ext_resource type="PackedScene" uid="uid://d3k4rco2vlm4q" path="res://Assets/player/player.tscn" id="3_hyqom"]
+[ext_resource type="Texture2D" uid="uid://6oke1pmrvgqg" path="res://Assets/Textures/texture_05.png" id="3_s6tqs"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g4v7s"]
 panorama = ExtResource("1_hyqom")
@@ -19,6 +20,9 @@ glow_enabled = true
 albedo_texture = ExtResource("2_s6tqs")
 uv1_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6tqs"]
+albedo_texture = ExtResource("3_s6tqs")
+
 [node name="MapTest" type="Node3D" unique_id=923364622]
 
 [node name="env" type="Node3D" parent="." unique_id=1336303389]
@@ -30,27 +34,60 @@ environment = SubResource("Environment_7hels")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Node" type="Node" parent="." unique_id=416258065]
+[node name="Blocs" type="Node3D" parent="." unique_id=1824923352]
 
-[node name="GridMap" type="GridMap" parent="Node" unique_id=1205320796]
-cell_size = Vector3(1, 1, 1)
-cell_center_y = false
-data = {
-"cells": PackedInt32Array(1, 5, 0)
-}
-
-[node name="Node3D" type="Node3D" parent="." unique_id=1824923352]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=434382003]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3220215, -0.5, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="Blocs" unique_id=434382003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.878479, -0.5, 0)
 use_collision = true
-size = Vector3(36.644043, 1, 20)
+size = Vector3(41.531128, 1, 20)
 material = SubResource("StandardMaterial3D_yf5fn")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D" unique_id=2123905521]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Blocs" unique_id=2123905521]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8442383, 2.040191, 14.853867)
 use_collision = true
 size = Vector3(33.688477, 1, 20)
 material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Blocs" unique_id=217910408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.540367, 0.44898593, 5.385057)
+use_collision = true
+size = Vector3(4.4874268, 1, 5.1918945)
+material = SubResource("StandardMaterial3D_s6tqs")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Blocs" unique_id=1394802416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.540367, 1.4007231, 8.37675)
+use_collision = true
+size = Vector3(4.4874268, 1, 5.1918945)
+material = SubResource("StandardMaterial3D_s6tqs")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Blocs" unique_id=163943015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9071426, 0.35812318, -8.516653)
+use_collision = true
+size = Vector3(4.4874268, 1, 2.7800293)
+material = SubResource("StandardMaterial3D_s6tqs")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Blocs" unique_id=1263676461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7193204, 1.2888845, -8.516653)
+use_collision = true
+size = Vector3(4.4874268, 1, 2.7800293)
+material = SubResource("StandardMaterial3D_s6tqs")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Blocs" unique_id=944409663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6981525, 2.3026142, -8.516653)
+use_collision = true
+size = Vector3(4.4874268, 1, 2.7800293)
+material = SubResource("StandardMaterial3D_s6tqs")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Blocs" unique_id=1283050632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6981525, 2.9622192, -0.0586977)
+use_collision = true
+size = Vector3(4.4874268, 0.29638672, 10.532166)
+material = SubResource("StandardMaterial3D_s6tqs")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Blocs" unique_id=77605723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.672188, 0.35812294, -8.4255295)
+use_collision = true
+size = Vector3(1.1062164, 1, 1.1555176)
+material = SubResource("StandardMaterial3D_s6tqs")
 
 [node name="Player" parent="." unique_id=1257960350 instance=ExtResource("3_hyqom")]
