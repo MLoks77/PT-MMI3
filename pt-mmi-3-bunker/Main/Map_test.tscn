@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://cc7u1vn65xprw"]
 
+[ext_resource type="Script" uid="uid://6qn8mvdm5k8x" path="res://Scripts/Managers/PlayerManager.gd" id="1_sdkpk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sdkpk"]
+height = 1.2
+
 [node name="MapTest" type="Node3D" unique_id=923364622]
 
 [node name="Node" type="Node" parent="." unique_id=416258065]
@@ -10,3 +17,35 @@ cell_center_y = false
 data = {
 "cells": PackedInt32Array(1, 5, 0)
 }
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1824923352]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=434382003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D" unique_id=2045044845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0547981, 14)
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=835872787]
+script = ExtResource("1_sdkpk")
+
+[node name="Collision_debout" type="CollisionShape3D" parent="Player" unique_id=1969244468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="Collision_accroupi" type="CollisionShape3D" parent="Player" unique_id=1117373476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60525715, 0)
+shape = SubResource("CapsuleShape3D_sdkpk")
+disabled = true
+
+[node name="Head" type="Node3D" parent="Player" unique_id=1583630445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=538628609]
+
+[node name="RayCast3D" type="RayCast3D" parent="Player" unique_id=15560688]
+target_position = Vector3(0, 2, 0)
