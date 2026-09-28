@@ -12,6 +12,8 @@ coconut.txt::TextFile::-1::1790256799::0::1::::<><><>0<>0<><>::
 coconut.txt::TextFile::-1::1790256799::0::1::::<><><>0<>0<><>::
 ::res://Assets/player/::1790256799
 coconut.txt::TextFile::-1::1790256799::0::1::::<><><>0<>0<><>::
+::res://Assets/player/::1790614604
+player.tscn::PackedScene::9146984729700647202::1790614598::0::1::::<><><>0<>0<><>::uid://6qn8mvdm5k8x::::res://Scripts/Managers/PlayerManager.gd
 ::res://Assets/Sprites/::1790256799
 coconut.txt::TextFile::-1::1790256799::0::1::::<><><>0<>0<><>::
 ::res://Assets/Textures/::1790256799
@@ -30,11 +32,5 @@ Etage2.tscn::PackedScene::2699944654240959803::1790256799::0::1::::<><><>0<>0<><
 Etage3.tscn::PackedScene::6012754672641370352::1790256799::0::1::::<><><>0<>0<><>::
 Etage4.tscn::PackedScene::323281980198872654::1790256799::0::1::::<><><>0<>0<><>::
 Map_test.tscn::PackedScene::4980541037811356876::1790597072::0::1::::<><><>0<>0<><>::
-::res://Scripts/::1790597072
 ItemsEffets.gd::GDScript::3447324433074322819::1790597072::0::1::::<>Node<><>0<>0<><>::
 ::res://Scripts/Managers/::1790597072
-ItemsManager.gd::GDScript::8861803717623706655::1790597072::0::1::::<>Resource<><>0<>0<><>::
-MobManager.gd::GDScript::5939384542244723603::1790597072::0::1::::<>CharacterBody3D<><>0<>0<><>::
-PlayerManager.gd::GDScript::2209733111823414513::1790597072::0::1::::<>CharacterBody3D<><>0<>0<><>::
-PropsManagers.gd::GDScript::6352379925310137105::1790597072::0::1::::<>RigidBody3D<><>0<>0<><>::
-test.tres::Resource::5903080709485390598::1790597072::0::1::::<><><>0<>0<><>::uid://dyiyu3b3r36sp::::res://Scripts/Managers/ItemsManager.gd
