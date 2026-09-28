@@ -1,3 +1,149 @@
 [gd_scene format=3 uid="uid://cc7u1vn65xprw"]
 
+[ext_resource type="Texture2D" uid="uid://v0qhdsoqxlo2" path="res://Assets/assets_test/FPS-controller-assets-main/assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_hyqom"]
+[ext_resource type="Script" uid="uid://6qn8mvdm5k8x" path="res://Scripts/Managers/PlayerManager.gd" id="1_sdkpk"]
+[ext_resource type="Texture2D" uid="uid://mc244k2bx1th" path="res://Assets/assets_test/FPS-controller-assets-main/assets/textures/dev/grids/Dark/texture_07.png" id="2_s6tqs"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g4v7s"]
+panorama = ExtResource("1_hyqom")
+
+[sub_resource type="Sky" id="Sky_wqy50"]
+sky_material = SubResource("PanoramaSkyMaterial_g4v7s")
+
+[sub_resource type="Environment" id="Environment_7hels"]
+background_mode = 2
+sky = SubResource("Sky_wqy50")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_texture = ExtResource("2_s6tqs")
+uv1_triplanar = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sdkpk"]
+height = 1.2
+
+[sub_resource type="Animation" id="Animation_hyqom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s6tqs"]
+resource_name = "jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.05235988, 0, 0.008726646), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.05235988, 0, 0.034906585), Vector3(-0.05235988, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wqy50"]
+_data = {
+&"RESET": SubResource("Animation_hyqom"),
+&"jump": SubResource("Animation_s6tqs")
+}
+
 [node name="MapTest" type="Node3D" unique_id=923364622]
+
+[node name="env" type="Node3D" parent="." unique_id=1336303389]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=1840624636]
+environment = SubResource("Environment_7hels")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env" unique_id=626645975]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Node" type="Node" parent="." unique_id=416258065]
+
+[node name="GridMap" type="GridMap" parent="Node" unique_id=1205320796]
+mesh_library = ExtResource("1_sdkpk")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(1, 5, 0)
+}
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1824923352]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=434382003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D" unique_id=2123905521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.040191, 14.853867)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=835872787]
+script = ExtResource("1_sdkpk")
+
+[node name="Collision_debout" type="CollisionShape3D" parent="Player" unique_id=1969244468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="Collision_accroupi" type="CollisionShape3D" parent="Player" unique_id=1117373476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60525715, 0)
+shape = SubResource("CapsuleShape3D_sdkpk")
+disabled = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Player" unique_id=15560688]
+target_position = Vector3(0, 2, 0)
+
+[node name="Nek" type="Node3D" parent="Player" unique_id=2111655492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Head" type="Node3D" parent="Player/Nek" unique_id=1583630445]
+
+[node name="eyes" type="Node3D" parent="Player/Nek/Head" unique_id=125825439]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Nek/Head/eyes" unique_id=538628609]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Nek/Head/eyes" unique_id=424932738]
+libraries/ = SubResource("AnimationLibrary_wqy50")
+
