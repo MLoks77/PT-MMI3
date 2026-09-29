@@ -1,14 +1,14 @@
 extends CharacterBody3D
 
 #nodes Player
-@onready var nek: Node3D = $Nek
-@onready var head: Node3D = $Nek/Head
-@onready var eyes: Node3D = $Nek/Head/eyes
+@onready var neck: Node3D = $Neck
+@onready var head: Node3D = $Neck/Head
+@onready var eyes: Node3D = $Neck/Head/eyes
 @onready var collision_debout: CollisionShape3D = $Collision_debout
 @onready var collision_accroupi: CollisionShape3D = $Collision_accroupi
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
-@onready var camera_3d: Camera3D = $Nek/Head/eyes/Camera3D
-@onready var animation_player: AnimationPlayer = $Nek/Head/eyes/AnimationPlayer
+@onready var camera_3d: Camera3D = $Neck/Head/eyes/Camera3D
+@onready var animation_player: AnimationPlayer = $Neck/Head/eyes/AnimationPlayer
 
 @export_group("Statistiques_joueur")
 @export var vie: float = 10.0
@@ -24,9 +24,12 @@ extends CharacterBody3D
 @export var inventaire: Array[String] = [] #a completer avec le gd itemsmanager
 
 @export_group("Lerp déplacement")
-@export var vitesse_lerp = 10.0  # variable qui sert à ce que lors des déplacements la vitesse du joueur soit progressive
-@export var vitesse_lerp_air = 3.0
+@export var vitesse_lerp: float = 10.0  # variable qui sert à ce que lors des déplacements la vitesse du joueur soit progressive
+@export var vitesse_lerp_air: float = 3.0
 
+@export_group("Crosshair")
+@export var Crosshair: Texture2D
+@export_range(0, 100, 1) var Opacite: int = 100
 # variables vitesses
 const vitesse_marche: float = 5.0
 const vitesse_sprint: float = 8.0

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d3k4rco2vlm4q"]
 
 [ext_resource type="Script" uid="uid://6qn8mvdm5k8x" path="res://Scripts/Managers/PlayerManager.gd" id="1_2cccr"]
+[ext_resource type="Texture2D" uid="uid://tag1pyq2eqtp" path="res://Assets/Sprites/kenneycrosshairpack/PNG/Blanc/crosshair-000.png" id="2_si71x"]
+[ext_resource type="Script" uid="uid://c41qfwvsfsyl2" path="res://Scripts/Crosshair.gd" id="3_si71x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
 
@@ -68,8 +70,10 @@ _data = {
 &"jump": SubResource("Animation_s6tqs")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=1257960350]
+[node name="Player" type="CharacterBody3D" unique_id=1257960350 groups=["Player"]]
 script = ExtResource("1_2cccr")
+Crosshair = ExtResource("2_si71x")
+Opacite = 50
 
 [node name="Collision_debout" type="CollisionShape3D" parent="." unique_id=2103377319]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -83,14 +87,37 @@ disabled = true
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=765519835]
 target_position = Vector3(0, 2, 0)
 
-[node name="Nek" type="Node3D" parent="." unique_id=689304167]
+[node name="Neck" type="Node3D" parent="." unique_id=689304167 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
-[node name="Head" type="Node3D" parent="Nek" unique_id=865785023]
+[node name="Head" type="Node3D" parent="Neck" unique_id=865785023]
 
-[node name="eyes" type="Node3D" parent="Nek/Head" unique_id=510133575]
+[node name="eyes" type="Node3D" parent="Neck/Head" unique_id=510133575]
 
-[node name="Camera3D" type="Camera3D" parent="Nek/Head/eyes" unique_id=466037751]
+[node name="Camera3D" type="Camera3D" parent="Neck/Head/eyes" unique_id=466037751]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Nek/Head/eyes" unique_id=188210856]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Neck/Head/eyes" unique_id=188210856]
 libraries/ = SubResource("AnimationLibrary_wqy50")
+
+[node name="Crosshair" type="Control" parent="." unique_id=1684024968 groups=["Player"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_si71x")
+
+[node name="CenterContainer" type="CenterContainer" parent="Crosshair" unique_id=357177766]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CrosshairRect" type="TextureRect" parent="Crosshair/CenterContainer" unique_id=901575482]
+layout_mode = 2
+mouse_filter = 2

@@ -11,4 +11,4 @@ extends RigidBody3D
 @export var CanBeHeld : bool = true # peut être tenu en maintenant E
 
 @export_group("States")
-@export var IsBroken : bool = false 
+var IsBroken : bool = false 
