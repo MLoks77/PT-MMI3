@@ -16,3 +16,5 @@ extends Resource
 
 @export_group("Scripts")
 @export var EffetInGame: Script
+
+# ----------------------------------------------------------------------------------

@@ -84,7 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60525715, 0)
 shape = SubResource("CapsuleShape3D_sdkpk")
 disabled = true
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=765519835]
+[node name="RayCast3DCrouchCollision" type="RayCast3D" parent="." unique_id=765519835]
 target_position = Vector3(0, 2, 0)
 
 [node name="Neck" type="Node3D" parent="." unique_id=689304167 groups=["Player"]]
@@ -95,6 +95,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="eyes" type="Node3D" parent="Neck/Head" unique_id=510133575]
 
 [node name="Camera3D" type="Camera3D" parent="Neck/Head/eyes" unique_id=466037751]
+
+[node name="RayCast3D" type="RayCast3D" parent="Neck/Head/eyes/Camera3D" unique_id=318698643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0023794174, 0)
+exclude_parent = false
+target_position = Vector3(0, 0, -3)
+
+[node name="PositionObjet" type="Marker3D" parent="Neck/Head/eyes/Camera3D" unique_id=1561660367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00040626526, -2.2672844)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Neck/Head/eyes" unique_id=188210856]
 libraries/ = SubResource("AnimationLibrary_wqy50")

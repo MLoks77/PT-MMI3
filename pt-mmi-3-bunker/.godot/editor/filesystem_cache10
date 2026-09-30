@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1790686987
+::res://::1790726767
 icon.svg::CompressedTexture2D::7158751375425750308::1790253650::1790614425::1::::<><><>0<>0<>7485a1f5b3139393a1e919bd91273019<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://Assets/::1790616551
 ::res://Assets/Audio/::1790616554
@@ -9,12 +9,12 @@ BusAudio.tres::AudioBusLayout::4366490461405551185::1790616554::0::1::::<><><>0<
 coconut.txt::TextFile::-1::1789768949::0::1::::<><><>0<>0<><>::
 ::res://Assets/Models/Objets/::1790255426
 coconut.txt::TextFile::-1::1789768949::0::1::::<><><>0<>0<><>::
-::res://Assets/player/::1790686950
-player.tscn::PackedScene::9146984729700647202::1790686950::0::1::::<><><>0<>0<><>::uid://6qn8mvdm5k8x::::res://Scripts/Managers/PlayerManager.gd<>uid://dnjdlw0pcj0bd::::res://Assets/Sprites/kenneycrosshairpack/PNG/Glow (2×)/crosshair-000.png<>uid://c41qfwvsfsyl2::::res://Scripts/Crosshair.gd
+::res://Assets/player/::1790687369
+player.tscn::PackedScene::9146984729700647202::1790687369::0::1::::<><><>0<>0<><>::uid://6qn8mvdm5k8x::::res://Scripts/Managers/PlayerManager.gd<>uid://tag1pyq2eqtp::::res://Assets/Sprites/kenneycrosshairpack/PNG/Blanc/crosshair-000.png<>uid://c41qfwvsfsyl2::::res://Scripts/Crosshair.gd
 ::res://Assets/Sprites/::1790684469
 ::res://Assets/Sprites/kenneycrosshairpack/::1790684682
 ::res://Assets/Sprites/kenneycrosshairpack/PNG/::1790686987
-::res://Assets/Sprites/kenneycrosshairpack/PNG/Blanc/::1790684586
+::res://Assets/Sprites/kenneycrosshairpack/PNG/Blanc/::1790686988
 crosshair-000.png::CompressedTexture2D::1333999587409523749::1790684580::1790686988::1::::<><><>0<>0<>8a75fb60be250eaa0c1108f87dbd602a<>res://.godot/imported/crosshair-000.png-1fa56c83c362b2c29029c8b5c1fefcd3.ctex::
 crosshair-001.png::CompressedTexture2D::8774853326478315047::1790684580::1790686988::1::::<><><>0<>0<>5c2bde0c7b34cf492ca6ed3eaa392a04<>res://.godot/imported/crosshair-001.png-0f7606c6970576ade3afed1ddfbeb3e8.ctex::
 crosshair-002.png::CompressedTexture2D::3094058330348501497::1790684580::1790686988::1::::<><><>0<>0<>f2720c65d0cb0825746fa0acd1234fed<>res://.godot/imported/crosshair-002.png-f4610e7a2620bd232675836f282a54f5.ctex::
@@ -227,18 +227,18 @@ coconut.txt::TextFile::-1::1789768949::0::1::::<><><>0<>0<><>::
 ::res://Data/Meshlibrary/::1790684337
 explication.txt::TextFile::-1::1790616551::0::1::::<><><>0<>0<><>::
 meshlibrary.tscn::PackedScene::8374298924843650530::1790684337::0::1::::<><><>0<>0<><>::
-::res://Main/::1790616551
+::res://Main/::1790687227
 Etage1.tscn::PackedScene::141336700367869865::1790255199::0::1::::<><><>0<>0<><>::
 Etage2.tscn::PackedScene::2699944654240959803::1790255204::0::1::::<><><>0<>0<><>::
 Etage3.tscn::PackedScene::6012754672641370352::1790255208::0::1::::<><><>0<>0<><>::
 Etage4.tscn::PackedScene::323281980198872654::1790255455::0::1::::<><><>0<>0<><>::
-Map_test.tscn::PackedScene::4980541037811356876::1790616551::0::1::::<><><>0<>0<><>::uid://v0qhdsoqxlo2::::res://Assets/Textures/sky.hdr<>uid://mc244k2bx1th::::res://Assets/Textures/texture_07.png<>uid://d3k4rco2vlm4q::::res://Assets/player/player.tscn<>uid://6oke1pmrvgqg::::res://Assets/Textures/texture_05.png
-::res://Scripts/::1790686773
-Crosshair.gd::GDScript::6862973244128334161::1790686773::0::1::::<>Control<><>0<>0<><>::
+Map_test.tscn::PackedScene::4980541037811356876::1790687227::0::1::::<><><>0<>0<><>::uid://v0qhdsoqxlo2::::res://Assets/Textures/sky.hdr<>uid://mc244k2bx1th::::res://Assets/Textures/texture_07.png<>uid://d3k4rco2vlm4q::::res://Assets/player/player.tscn<>uid://6oke1pmrvgqg::::res://Assets/Textures/texture_05.png
+::res://Scripts/::1790687227
+Crosshair.gd::GDScript::6862973244128334161::1790687227::0::1::::<>Control<><>0<>0<><>::
 ItemsEffets.gd::GDScript::3447324433074322819::1790353866::0::1::::<>Node<><>0<>0<><>::
-::res://Scripts/Managers/::1790686816
+::res://Scripts/Managers/::1790687240
 ItemsManager.gd::GDScript::8861803717623706655::1790354446::0::1::::<>Resource<><>0<>0<><>::
 MobManager.gd::GDScript::5939384542244723603::1790354409::0::1::::<>CharacterBody3D<><>0<>0<><>::
-PlayerManager.gd::GDScript::2209733111823414513::1790686816::0::1::::<>CharacterBody3D<><>0<>0<><>::
+PlayerManager.gd::GDScript::2209733111823414513::1790687240::0::1::::<>CharacterBody3D<><>0<>0<><>::
 PropsManagers.gd::GDScript::6352379925310137105::1790684315::0::1::::<>RigidBody3D<><>0<>0<><>::
 test.tres::Resource::5903080709485390598::1790353765::0::1::::<><><>0<>0<><>::uid://dyiyu3b3r36sp::::res://Scripts/Managers/ItemsManager.gd

@@ -1,21 +1,31 @@
 extends CharacterBody3D
 
-#nodes Player
+#nodes mouvements
 @onready var neck: Node3D = $Neck
 @onready var head: Node3D = $Neck/Head
 @onready var eyes: Node3D = $Neck/Head/eyes
 @onready var collision_debout: CollisionShape3D = $Collision_debout
 @onready var collision_accroupi: CollisionShape3D = $Collision_accroupi
-@onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var ray_cast_3d_collision: RayCast3D = $RayCast3DCrouchCollision
 @onready var camera_3d: Camera3D = $Neck/Head/eyes/Camera3D
 @onready var animation_player: AnimationPlayer = $Neck/Head/eyes/AnimationPlayer
+
+# nodes interactions
+@onready var raycast_objet: RayCast3D = $Neck/Head/eyes/Camera3D/RayCast3D
+@onready var position_objet: Marker3D = $Neck/Head/eyes/Camera3D/PositionObjet
+var objet_tenu: RigidBody3D = null
+# ----------------------------------------------------------------------------------
 
 @export_group("Statistiques_joueur")
 @export var vie: float = 10.0
 @export var protection: float = 10.0
 @export var vitesse_actuelle: float = 5.0
-@export var poids: float = 10.0
-@export var sensi_souris = 0.4
+@export var sensi_souris: float = 0.15
+@export var poids: float = 10
+
+@export_group("Interactions")
+@export var AttractionOnGrab: float = 8.0 # Force d'attraction douce de l'objet
+@export var ForceInteraction: float = 20.0 # Vitesse appliquée à l'objet lorsqu'on le lâche
 
 @export_group("Inventaire")
 # il faudra faire en sorte de mettre des id d'objets qui prennent aussi
@@ -23,13 +33,17 @@ extends CharacterBody3D
 # automatiquement et que le joueur peut les déplacer
 @export var inventaire: Array[String] = [] #a completer avec le gd itemsmanager
 
+@export_group("Crosshair")
+@export var Crosshair: Texture2D
+@export_range(0, 100, 1) var Opacite: int = 100
+
 @export_group("Lerp déplacement")
 @export var vitesse_lerp: float = 10.0  # variable qui sert à ce que lors des déplacements la vitesse du joueur soit progressive
 @export var vitesse_lerp_air: float = 3.0
 
-@export_group("Crosshair")
-@export var Crosshair: Texture2D
-@export_range(0, 100, 1) var Opacite: int = 100
+# ----------------------------------------------------------------------------------
+# mouvements vars-------------------------------------------------------------------
+# ----------------------------------------------------------------------------------
 # variables vitesses
 const vitesse_marche: float = 5.0
 const vitesse_sprint: float = 8.0
@@ -66,6 +80,9 @@ const jump_velocity = 4.5
 var direction = Vector3.ZERO
 var profondeur_crouch = -0.5 # la hauteur de la caméra quand on crouch
 
+# ----------------------------------------------------------------------------------
+# mouvements------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------
 func _ready(): # fonction qui est appelée une fois au lancement
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # pour détecter la souris dans le jeu (nécessaire pour tourner la cam)
 
@@ -98,7 +115,7 @@ func _physics_process(delta: float) -> void:
 		isSprinting = false
 		isCrouching = true
 		
-	elif !ray_cast_3d.is_colliding():
+	elif !ray_cast_3d_collision.is_colliding():
 		collision_debout.disabled = false
 		collision_accroupi.disabled = true
 		head.position.y = lerp(head.position.y,0.0,delta*vitesse_lerp)  #taille du perso
@@ -173,3 +190,41 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, vitesse_actuelle)
 
 	move_and_slide()
+	_physics_grab(delta)
+	
+# ----------------------------------------------------------------------------------
+# Interactions grab et lacher ------------------------------------------------------
+# ----------------------------------------------------------------------------------
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Interagir"):
+		if objet_tenu:
+			_Lacher()
+		else:
+			_Essaie_Soulever()
+
+func _physics_grab(_delta: float) -> void:
+	if objet_tenu and not Input.is_action_pressed("Interagir"):
+		_Lacher()
+		return
+	
+	if objet_tenu:
+		var target_pos = position_objet.global_position
+		var current_pos = objet_tenu.global_position
+		var offset = target_pos - current_pos
+		
+		objet_tenu.linear_velocity = offset * 20.0
+		objet_tenu.angular_velocity *= 0.5
+
+func _Essaie_Soulever() -> void:
+	if raycast_objet.is_colliding():
+		var collider = raycast_objet.get_collider()
+		
+		if collider is RigidBody3D and "CanBeHeld" in collider and collider.CanBeHeld:
+			objet_tenu = collider
+			objet_tenu._Soulever()
+
+func _Lacher() -> void:
+	if objet_tenu:
+		objet_tenu._Lacher()
+		objet_tenu = null

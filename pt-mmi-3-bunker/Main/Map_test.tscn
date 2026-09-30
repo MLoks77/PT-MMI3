@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://mc244k2bx1th" path="res://Assets/Textures/texture_07.png" id="2_s6tqs"]
 [ext_resource type="PackedScene" uid="uid://d3k4rco2vlm4q" path="res://Assets/player/player.tscn" id="3_hyqom"]
 [ext_resource type="Texture2D" uid="uid://6oke1pmrvgqg" path="res://Assets/Textures/texture_05.png" id="3_s6tqs"]
+[ext_resource type="PackedScene" uid="uid://cj5rsrj4iisyn" path="res://Assets/Models/Objets/cube/cube.tscn" id="5_wqy50"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g4v7s"]
 panorama = ExtResource("1_hyqom")
@@ -91,3 +92,6 @@ size = Vector3(1.1062164, 1, 1.1555176)
 material = SubResource("StandardMaterial3D_s6tqs")
 
 [node name="Player" parent="." unique_id=1257960350 instance=ExtResource("3_hyqom")]
+
+[node name="Cube" parent="." unique_id=1347363330 instance=ExtResource("5_wqy50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.59833, 1.2856822, -8.448617)

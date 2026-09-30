@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cj5rsrj4iisyn"]
+
+[ext_resource type="Script" uid="uid://cwre1fjuue1h2" path="res://Scripts/Managers/PropsManagers.gd" id="1_3j3mt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhunq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qr0ht"]
+albedo_color = Color(0.97554535, 0.3716684, 3.85046e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sn0t7"]
+material = SubResource("StandardMaterial3D_qr0ht")
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6f8o3"]
+
+[node name="Cube" type="Node3D" unique_id=1347363330]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1760351179]
+physics_material_override = SubResource("PhysicsMaterial_bhunq")
+continuous_cd = true
+script = ExtResource("1_3j3mt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1639819633]
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=580635226]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("BoxShape3D_6f8o3")
