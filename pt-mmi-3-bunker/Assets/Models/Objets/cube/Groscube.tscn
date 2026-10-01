@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cj5rsrj4iisyn"]
+[gd_scene format=3 uid="uid://dovit0is42tju"]
 
-[ext_resource type="Script" uid="uid://cwre1fjuue1h2" path="res://Scripts/Managers/PropsManagers.gd" id="1_3j3mt"]
+[ext_resource type="Script" uid="uid://cwre1fjuue1h2" path="res://Scripts/Managers/PropsManagers.gd" id="1_5pssk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhunq"]
 
@@ -14,13 +14,14 @@ size = Vector3(0.3, 0.3, 0.3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6f8o3"]
 
 [node name="Cube" type="Node3D" unique_id=1347363330]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1760351179]
+mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_bhunq")
 continuous_cd = true
 contact_monitor = true
-script = ExtResource("1_3j3mt")
-mass = 2.0
+script = ExtResource("1_5pssk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1639819633]
 mesh = SubResource("BoxMesh_sn0t7")

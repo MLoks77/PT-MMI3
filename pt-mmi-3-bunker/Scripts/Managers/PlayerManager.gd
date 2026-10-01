@@ -212,17 +212,14 @@ func _Essaie_Soulever() -> void:
 		if collider is RigidBody3D and "CanBeHeld" in collider and collider.CanBeHeld:
 			objet_tenu = collider
 			
-			# Pour récupérer la donnée du poids au moment où on attrape :
-			if "poids" in collider:
-				print("Objet soulevé, poids : ", collider.poids, " kg")
+			print("Objet soulevé, masse : ", collider.mass, " kg")
 			
 			objet_tenu._Soulever()
 
 func _Lacher() -> void:
 	if objet_tenu:
 		var direction_lancer: Vector3 = -camera_3d.global_basis.z.normalized()
-		var vitesse_max: float = maxf(ForceDeLancer, 0.0)
-		var vitesse_geste: Vector3 = objet_tenu.linear_velocity.limit_length(vitesse_max) * 0.5
-		objet_tenu.linear_velocity = (direction_lancer * vitesse_max + vitesse_geste).limit_length(vitesse_max)
+		objet_tenu.linear_velocity = Vector3.ZERO
+		objet_tenu.apply_central_impulse(direction_lancer * maxf(ForceDeLancer, 0.0))
 		objet_tenu._Lacher()
 		objet_tenu = null
