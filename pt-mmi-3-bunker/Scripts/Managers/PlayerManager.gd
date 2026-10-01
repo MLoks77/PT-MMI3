@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 #nodes mouvements
-@onready var neck: Node3D = $Neck
 @onready var head: Node3D = $Neck/Head
 @onready var eyes: Node3D = $Neck/Head/eyes
 @onready var collision_debout: CollisionShape3D = $Collision_debout
@@ -24,8 +23,7 @@ var objet_tenu: RigidBody3D = null
 @export var poids: float = 10
 
 @export_group("Interactions")
-@export var AttractionOnGrab: float = 8.0 # Force d'attraction douce de l'objet
-@export var ForceInteraction: float = 20.0 # Vitesse appliquée à l'objet lorsqu'on le lâche
+@export var ForceDeLancer: float = 5
 
 @export_group("Inventaire")
 # il faudra faire en sorte de mettre des id d'objets qui prennent aussi
@@ -50,7 +48,6 @@ const vitesse_sprint: float = 8.0
 const vitesse_accroupi: float = 3.0
 
 # variables d'état
-var isWalking = false
 var isSprinting = false
 var isCrouching = false
 var isSliding = false
@@ -111,7 +108,6 @@ func _physics_process(delta: float) -> void:
 			vecteur_slide = input_dir
 			print("Sliding")
 		
-		isWalking = false
 		isSprinting = false
 		isCrouching = true
 		
@@ -122,12 +118,10 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("Sprint"):
 			vitesse_actuelle = lerp(vitesse_actuelle,vitesse_sprint,delta*vitesse_lerp)
 			
-			isWalking = false
 			isSprinting = true
 			isCrouching = false
 		else:
 			vitesse_actuelle = lerp(vitesse_actuelle,vitesse_marche,delta*vitesse_lerp)
-			isWalking = true
 			isSprinting = false
 			isCrouching = false
 	
@@ -208,13 +202,8 @@ func _physics_grab(_delta: float) -> void:
 		_Lacher()
 		return
 	
-	if objet_tenu:
-		var target_pos = position_objet.global_position
-		var current_pos = objet_tenu.global_position
-		var offset = target_pos - current_pos
-		
-		objet_tenu.linear_velocity = offset * 20.0
-		objet_tenu.angular_velocity *= 0.5
+	if objet_tenu and not objet_tenu.call("bouger", position_objet):
+		objet_tenu = null
 
 func _Essaie_Soulever() -> void:
 	if raycast_objet.is_colliding():
@@ -222,9 +211,18 @@ func _Essaie_Soulever() -> void:
 		
 		if collider is RigidBody3D and "CanBeHeld" in collider and collider.CanBeHeld:
 			objet_tenu = collider
+			
+			# Pour récupérer la donnée du poids au moment où on attrape :
+			if "poids" in collider:
+				print("Objet soulevé, poids : ", collider.poids, " kg")
+			
 			objet_tenu._Soulever()
 
 func _Lacher() -> void:
 	if objet_tenu:
+		var direction_lancer: Vector3 = -camera_3d.global_basis.z.normalized()
+		var vitesse_max: float = maxf(ForceDeLancer, 0.0)
+		var vitesse_geste: Vector3 = objet_tenu.linear_velocity.limit_length(vitesse_max) * 0.5
+		objet_tenu.linear_velocity = (direction_lancer * vitesse_max + vitesse_geste).limit_length(vitesse_max)
 		objet_tenu._Lacher()
 		objet_tenu = null
