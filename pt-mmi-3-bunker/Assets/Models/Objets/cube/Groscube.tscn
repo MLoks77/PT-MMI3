@@ -22,6 +22,7 @@ physics_material_override = SubResource("PhysicsMaterial_bhunq")
 continuous_cd = true
 contact_monitor = true
 script = ExtResource("1_5pssk")
+CanBePushed = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1639819633]
 mesh = SubResource("BoxMesh_sn0t7")

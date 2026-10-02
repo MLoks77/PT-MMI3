@@ -16,11 +16,11 @@ size = Vector3(0.3, 0.3, 0.3)
 [node name="Cube" type="Node3D" unique_id=1347363330]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1760351179]
+mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_bhunq")
 continuous_cd = true
 contact_monitor = true
 script = ExtResource("1_3j3mt")
-mass = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1639819633]
 mesh = SubResource("BoxMesh_sn0t7")

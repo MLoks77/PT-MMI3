@@ -24,6 +24,7 @@ var objet_tenu: RigidBody3D = null
 
 @export_group("Interactions")
 @export var ForceDeLancer: float = 5
+@export var forcePoussee: float = 10.0
 
 @export_group("Inventaire")
 # il faudra faire en sorte de mettre des id d'objets qui prennent aussi
@@ -184,11 +185,35 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, vitesse_actuelle)
 
 	move_and_slide()
+	_physics_pousse()
 	_physics_grab(delta)
 	
 # ----------------------------------------------------------------------------------
 # Interactions grab et lacher ------------------------------------------------------
 # ----------------------------------------------------------------------------------
+
+func _physics_pousse() -> void:
+	if direction.length_squared() < 0.01:
+		return
+
+	var push_direction: Vector3 = direction.normalized()
+	for collision_index in range(get_slide_collision_count()):
+		var collision: KinematicCollision3D = get_slide_collision(collision_index)
+		var collider = collision.get_collider()
+		if not collider is RigidBody3D or collider == objet_tenu:
+			continue
+		if not "CanBePushed" in collider or not collider.CanBePushed:
+			continue
+
+		var contact_normal: Vector3 = collision.get_normal()
+		contact_normal.y = 0.0
+		if contact_normal.length_squared() == 0.0:
+			continue
+		if push_direction.dot(-contact_normal.normalized()) <= 0.1:
+			continue
+
+		collider.apply_central_force(push_direction * maxf(poids, 0.0) * maxf(forcePoussee, 0.0))
+		break
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interagir"):

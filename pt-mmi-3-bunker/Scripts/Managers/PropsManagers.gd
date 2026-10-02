@@ -11,6 +11,7 @@ extends RigidBody3D
 @export var CanBePickedUp : bool = false # peut être tenu en maintenant E
 @export var CanBeHeld : bool = true # peut être tenu en maintenant E
 @export var CanBeBroken : bool = false # peut se casser si on le fait tomber / tape
+@export var CanBePushed : bool = true # peut etre pousse par le joueur
 
 @export_group("States")
 var IsBroken : bool = false 
@@ -40,3 +41,6 @@ func _ready() -> void:
 	continuous_cd = true # si on lance, pour éviter de passer à travers les murs
 	contact_monitor = true # pour calculer si le props doit être lacher automatiquement dans le cas où il est bloqué*
 	max_contacts_reported = 4
+	
+	
+# ----------------------------------------------------------------------------------
