@@ -15,3 +15,4 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+pt-mmi-3-bunker/.godot/editor/filesystem_cache10
