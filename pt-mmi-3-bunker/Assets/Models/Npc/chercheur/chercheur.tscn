@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://dre5q0xwt72ms"]
 
-[node name="Chercheur" type="Node3D" unique_id=173124037]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vyu0a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svxh0"]
+albedo_color = Color(0.08387438, 0.7040978, 0.75109315, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2dwj6"]
+
+[node name="Chercheur" type="RigidBody3D" unique_id=1592689655]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=910206599]
+shape = SubResource("CapsuleShape3D_vyu0a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=730018022]
+material_override = SubResource("StandardMaterial3D_svxh0")
+mesh = SubResource("CapsuleMesh_2dwj6")

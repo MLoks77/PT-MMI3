@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://mc244k2bx1th" path="res://Assets/Textures/texture_07.png" id="2_s6tqs"]
 [ext_resource type="PackedScene" uid="uid://d3k4rco2vlm4q" path="res://Assets/player/player.tscn" id="3_hyqom"]
 [ext_resource type="Texture2D" uid="uid://6oke1pmrvgqg" path="res://Assets/Textures/texture_05.png" id="3_s6tqs"]
+[ext_resource type="Script" uid="uid://dc83lcl8p24d6" path="res://Scripts/Managers/MoveTest.gd" id="4_ir3ht"]
 [ext_resource type="PackedScene" uid="uid://cj5rsrj4iisyn" path="res://Assets/Models/Objets/cube/cube.tscn" id="5_wqy50"]
 [ext_resource type="PackedScene" uid="uid://dovit0is42tju" path="res://Assets/Models/Objets/cube/Groscube.tscn" id="6_7hels"]
 [ext_resource type="PackedScene" uid="uid://bcdywt6w4y7jc" path="res://Assets/Models/Chaises/chaise1/Chaise.tscn" id="7_xrode"]
 [ext_resource type="PackedScene" uid="uid://coq47ey8shly4" path="res://Assets/Models/Chaises/chaise1/Parts/chaiseBroken.tscn" id="8_b4pwn"]
+[ext_resource type="PackedScene" uid="uid://cr5ecmwpvagq5" path="res://Assets/Models/Npc/garde/garde.tscn" id="9_iyir8"]
+[ext_resource type="PackedScene" uid="uid://dre5q0xwt72ms" path="res://Assets/Models/Npc/chercheur/chercheur.tscn" id="10_ir3ht"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g4v7s"]
 panorama = ExtResource("1_hyqom")
@@ -27,6 +30,9 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6tqs"]
 albedo_texture = ExtResource("3_s6tqs")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir3ht"]
+albedo_texture = ExtResource("3_s6tqs")
+
 [node name="MapTest" type="Node3D" unique_id=923364622]
 
 [node name="env" type="Node3D" parent="." unique_id=1336303389]
@@ -41,7 +47,7 @@ shadow_enabled = true
 [node name="Blocs" type="Node3D" parent="." unique_id=1824923352]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Blocs" unique_id=434382003]
-transform = Transform3D(2.058741, 0, 0, 0, 1, 0, 0, 0, 3.7424874, -5.878479, -0.5, 0)
+transform = Transform3D(2.058741, 0, 0, 0, 1, 0, 0, 0, 3.7424874, -5.9138994, -0.4999962, 0.11064911)
 use_collision = true
 size = Vector3(41.531128, 1, 20)
 material = SubResource("StandardMaterial3D_yf5fn")
@@ -89,26 +95,41 @@ size = Vector3(4.4874268, 0.29638672, 10.532166)
 material = SubResource("StandardMaterial3D_s6tqs")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Blocs" unique_id=77605723]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.879173, 0.35812294, -3.824152)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.879173, 0.35812294, -30.190996)
 use_collision = true
 size = Vector3(1.1062164, 1, 1.1555176)
 material = SubResource("StandardMaterial3D_s6tqs")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Blocs" unique_id=2115367879]
+transform = Transform3D(9.820618, 0, 0, 0, 1, 0, 0, 0, 9.820618, -3.5456772, 8.56816, -24.595558)
+inner_radius = 1.201
+outer_radius = 1.435
+material = SubResource("StandardMaterial3D_ir3ht")
+script = ExtResource("4_ir3ht")
+vitesse = 0.2
+distance = 30.0
 
 [node name="Player" parent="." unique_id=1257960350 instance=ExtResource("3_hyqom")]
 
 [node name="assets" type="Node" parent="." unique_id=1689625224]
 
 [node name="Cube" parent="assets" unique_id=1347363330 instance=ExtResource("5_wqy50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.953032, 1.2856822, -3.8472395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.953032, 1.2856822, -30.214085)
 
 [node name="GrosCube" parent="assets" unique_id=451575684 instance=ExtResource("6_7hels")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 12.548259, 1.2430333, -3.764224)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 12.548259, 1.2430333, -30.13107)
 
 [node name="Chaise" parent="." unique_id=659145887 instance=ExtResource("7_xrode")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0142746, 0.6067548, -5.3337784)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.173447, 0.6067548, -17.336887)
 BrokenModel = ExtResource("8_b4pwn")
 
 [node name="Chaise2" parent="." unique_id=564165521 instance=ExtResource("7_xrode")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4592404, 0.6067548, -5.28535)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.12502, 0.6067548, -19.810402)
 Vie = 100.0
 BrokenModel = ExtResource("8_b4pwn")
+
+[node name="Garde" parent="." unique_id=89837223 instance=ExtResource("9_iyir8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6985445, 1, -30.031845)
+
+[node name="Chercheur" parent="." unique_id=1592689655 instance=ExtResource("10_ir3ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0961752, 1.0000019, -30.02774)
