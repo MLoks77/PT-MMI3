@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://6oke1pmrvgqg" path="res://Assets/Textures/texture_05.png" id="3_s6tqs"]
 [ext_resource type="PackedScene" uid="uid://cj5rsrj4iisyn" path="res://Assets/Models/Objets/cube/cube.tscn" id="5_wqy50"]
 [ext_resource type="PackedScene" uid="uid://dovit0is42tju" path="res://Assets/Models/Objets/cube/Groscube.tscn" id="6_7hels"]
+[ext_resource type="PackedScene" uid="uid://bcdywt6w4y7jc" path="res://Assets/Models/Chaises/chaise1/Chaise.tscn" id="7_xrode"]
+[ext_resource type="PackedScene" uid="uid://coq47ey8shly4" path="res://Assets/Models/Chaises/chaise1/Parts/chaiseBroken.tscn" id="8_b4pwn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g4v7s"]
 panorama = ExtResource("1_hyqom")
@@ -94,8 +96,19 @@ material = SubResource("StandardMaterial3D_s6tqs")
 
 [node name="Player" parent="." unique_id=1257960350 instance=ExtResource("3_hyqom")]
 
-[node name="Cube" parent="." unique_id=1347363330 instance=ExtResource("5_wqy50")]
+[node name="assets" type="Node" parent="." unique_id=1689625224]
+
+[node name="Cube" parent="assets" unique_id=1347363330 instance=ExtResource("5_wqy50")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.953032, 1.2856822, -3.8472395)
 
-[node name="GrosCube" parent="." unique_id=451575684 instance=ExtResource("6_7hels")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 11.747832, 1.2430333, -4.5152483)
+[node name="GrosCube" parent="assets" unique_id=451575684 instance=ExtResource("6_7hels")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 12.548259, 1.2430333, -3.764224)
+
+[node name="Chaise" parent="." unique_id=659145887 instance=ExtResource("7_xrode")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8813663, 0.6067548, -3.5516262)
+BrokenModel = ExtResource("8_b4pwn")
+
+[node name="Chaise2" parent="." unique_id=564165521 instance=ExtResource("7_xrode")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8813663, 0.6067548, -0.76503325)
+Vie = 100.0
+BrokenModel = ExtResource("8_b4pwn")

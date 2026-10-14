@@ -103,7 +103,7 @@ exclude_parent = false
 target_position = Vector3(0, 0, -3)
 
 [node name="PositionObjet" type="Marker3D" parent="Neck/Head/eyes/Camera3D" unique_id=1561660367]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00040626526, -2.2672844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11881971, -2.2672844)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Neck/Head/eyes" unique_id=188210856]
 libraries/ = SubResource("AnimationLibrary_wqy50")

@@ -1,0 +1,87 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://d4h0pkcgvhrv"
+path="res://.godot/imported/chaiseparts.glb-ee53452988d10fa5747c97c854430069.scn"
+
+[deps]
+
+source_file="res://Assets/Models/Chaises/chaise1/Parts/chaiseparts.glb"
+dest_files=["res://.godot/imported/chaiseparts.glb-ee53452988d10fa5747c97c854430069.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"chaiseparts_Cube": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "res://Assets/Models/Chaises/chaise1/Parts/accoudoir1",
+"save_to_file/path": "uid://dnvdep7o6wlx5"
+}
+},
+"nodes": {
+"PATH:accoudoir1": {
+"generate/physics": true,
+"physics/body_type": 1
+},
+"PATH:accoudoir2": {
+"generate/physics": true,
+"physics/body_type": 1
+},
+"PATH:dossier": {
+"generate/physics": true,
+"physics/body_type": 1
+},
+"PATH:pied1": {
+"generate/physics": true,
+"physics/body_type": 1
+},
+"PATH:pied2": {
+"generate/physics": true,
+"physics/body_type": 1
+},
+"PATH:pied3": {
+"generate/physics": true,
+"physics/body_type": 1
+},
+"PATH:pied4": {
+"generate/physics": true,
+"physics/body_type": 1
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
+gltf/texture_map_mode=1

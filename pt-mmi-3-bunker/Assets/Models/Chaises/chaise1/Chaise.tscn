@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bcdywt6w4y7jc"]
+
+[ext_resource type="PackedScene" uid="uid://dxy3xsp2a001o" path="res://Assets/Models/Chaises/chaise1/chaisefusion.glb" id="1_bhpws"]
+[ext_resource type="Script" uid="uid://b417fgdktb8qi" path="res://Scripts/Managers/PropsManagers.gd" id="2_mxxi8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b36y8"]
+rough = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyeie"]
+size = Vector3(0.07006836, 0.86376953, 0.08496094)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(0.6177368, 0.08255005, 0.076171875)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riqys"]
+size = Vector3(0.09448242, 0.8059082, 0.6786499)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sn0t7"]
+size = Vector3(0.72454834, 0.14700317, 0.6854248)
+
+[node name="Chaise" type="RigidBody3D" unique_id=659145887]
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_b36y8")
+script = ExtResource("2_mxxi8")
+Vie = 0.0
+CanBeBroken = true
+
+[node name="pied1" type="CollisionShape3D" parent="." unique_id=1231141712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26818848, 0.18481445, 0.34062344)
+shape = SubResource("BoxShape3D_nyeie")
+
+[node name="pied12" type="CollisionShape3D" parent="." unique_id=2125809668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28654242, 0.18481445, 0.34062344)
+shape = SubResource("BoxShape3D_nyeie")
+
+[node name="pied21" type="CollisionShape3D" parent="." unique_id=1352990945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26818848, 0.18481445, -0.34546375)
+shape = SubResource("BoxShape3D_nyeie")
+
+[node name="pied22" type="CollisionShape3D" parent="." unique_id=349888088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28654242, 0.18481445, -0.34546375)
+shape = SubResource("BoxShape3D_nyeie")
+
+[node name="accoudoirgauche" type="CollisionShape3D" parent="." unique_id=2083543558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007659912, 0.5506439, 0.34375)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="accoudoirdroite" type="CollisionShape3D" parent="." unique_id=671577703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007659912, 0.5506439, -0.3395669)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="chaisefusion" parent="." unique_id=1007301524 instance=ExtResource("1_bhpws")]
+
+[node name="dossier" type="CollisionShape3D" parent="." unique_id=1291984276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28200734, 0.59802246, -0.0035095215)
+shape = SubResource("BoxShape3D_riqys")
+
+[node name="siege" type="CollisionShape3D" parent="." unique_id=1839947056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040924072, 0.26106262, 0.00091552734)
+shape = SubResource("BoxShape3D_sn0t7")

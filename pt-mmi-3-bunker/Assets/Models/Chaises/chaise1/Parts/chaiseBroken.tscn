@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://coq47ey8shly4"]
+
+[ext_resource type="PackedScene" uid="uid://d4h0pkcgvhrv" path="res://Assets/Models/Chaises/chaise1/Parts/chaiseparts.glb" id="1_parts"]
+[ext_resource type="Script" uid="uid://j3tw1xix0mgu" path="res://Scripts/Items.gd" id="2_84vlw"]
+
+[node name="Chaise" unique_id=1173586351 instance=ExtResource("1_parts")]
+
+[node name="accoudoir1" parent="." index="0" unique_id=1577333782]
+mass = 0.5
+freeze = true
+script = ExtResource("2_84vlw")
+
+[node name="accoudoir2" parent="." index="1" unique_id=1563969683]
+mass = 0.5
+freeze = true
+script = ExtResource("2_84vlw")
+
+[node name="dossier" parent="." index="2" unique_id=1020732079]
+mass = 2.0
+freeze = true
+script = ExtResource("2_84vlw")
+
+[node name="CollisionShape3D" parent="dossier" index="1" unique_id=1812968405]
+transform = Transform3D(1.1494999, 0, 0, 0, 1.0449998, 0, 0, 0, 1.045, 0, 0, 0)
+
+[node name="CollisionShape3D2" parent="dossier" index="2" unique_id=630078972]
+transform = Transform3D(0.98, 0, 0, 0, 0.98, 0, 0, 0, 0.98, 0, 0, 0)
+
+[node name="pied1" parent="." index="3" unique_id=964808055]
+mass = 0.5
+freeze = true
+script = ExtResource("2_84vlw")
+
+[node name="pied2" parent="." index="4" unique_id=704244514]
+mass = 0.5
+freeze = true
+script = ExtResource("2_84vlw")
+
+[node name="pied3" parent="." index="5" unique_id=1223305951]
+mass = 0.5
+freeze = true
+script = ExtResource("2_84vlw")
+
+[node name="pied4" parent="." index="6" unique_id=628265455]
+mass = 0.5
+freeze = true
+script = ExtResource("2_84vlw")

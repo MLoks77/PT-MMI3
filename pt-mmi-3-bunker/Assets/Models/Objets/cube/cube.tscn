@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cj5rsrj4iisyn"]
 
-[ext_resource type="Script" uid="uid://cwre1fjuue1h2" path="res://Scripts/Managers/PropsManagers.gd" id="1_3j3mt"]
+[ext_resource type="Script" uid="uid://b417fgdktb8qi" path="res://Scripts/Managers/PropsManagers.gd" id="1_3j3mt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhunq"]
 
