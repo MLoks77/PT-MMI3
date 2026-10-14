@@ -14,8 +14,12 @@ extends CharacterBody3D
 @export var chemin_patrouille: Path3D
 
 @export_group("States")
-@export var isActive: bool = true # hostile ou pas / permet aussi de juste le laisser immobile
+@export var isHostile: bool = false # hostile ou pas / permet aussi de juste le laisser immobile
 @export var isStunned: bool = false # est étourdi ou pas
 @export var isBleeding: bool = false # saigne ou pas
+
+@export_group("Fonctionnalités")
+@export var CanInteract: bool = true
+@export var CanMove: bool = false
 
 # ----------------------------------------------------------------------------------

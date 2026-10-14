@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cr5ecmwpvagq5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bhunq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sn0t7"]
+albedo_color = Color(0.8588668, 0.51131415, 0.5113508, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_riqys"]
+
+[node name="Garde" type="RigidBody3D" unique_id=89837223]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=869391022]
+shape = SubResource("CapsuleShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=163911827]
+material_override = SubResource("StandardMaterial3D_sn0t7")
+mesh = SubResource("CapsuleMesh_riqys")
