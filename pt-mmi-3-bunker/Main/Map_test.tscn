@@ -105,10 +105,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.953032, 1.2856822, -3.84723
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 12.548259, 1.2430333, -3.764224)
 
 [node name="Chaise" parent="." unique_id=659145887 instance=ExtResource("7_xrode")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8813663, 0.6067548, -3.5516262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0142746, 0.6067548, -5.3337784)
 BrokenModel = ExtResource("8_b4pwn")
 
 [node name="Chaise2" parent="." unique_id=564165521 instance=ExtResource("7_xrode")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8813663, 0.6067548, -0.76503325)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4592404, 0.6067548, -5.28535)
 Vie = 100.0
 BrokenModel = ExtResource("8_b4pwn")

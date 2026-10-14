@@ -98,12 +98,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="Camera3D" type="Camera3D" parent="Neck/Head/eyes" unique_id=466037751]
 
 [node name="RayCast3D" type="RayCast3D" parent="Neck/Head/eyes/Camera3D" unique_id=318698643]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0023794174, 0)
+transform = Transform3D(1, 0, 0, 0, 2.5848308, 0, 0, 0, 1, 0, -0.0023794174, 0)
 exclude_parent = false
 target_position = Vector3(0, 0, -3)
 
 [node name="PositionObjet" type="Marker3D" parent="Neck/Head/eyes/Camera3D" unique_id=1561660367]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11881971, -2.2672844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008501291, -2.2672844)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Neck/Head/eyes" unique_id=188210856]
 libraries/ = SubResource("AnimationLibrary_wqy50")
